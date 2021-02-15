@@ -18,10 +18,12 @@ public class NetflixServices {
 
     String url = "https://unogsng.p.rapidapi.com/search?orderby=relevance&query=";
     HttpHeaders headers = new HttpHeaders();
-
+	
+	@Value("$APIKEY)
+    String apiKey;
 
     public List<Netflix> getCountriesForMovie(String movie) {
-        headers.set("x-rapidapi-key", "5ecfe71113msha84e2fa2a475fcep12394ajsn3bff7e395800");
+        headers.set("x-rapidapi-key", apiKey);
         headers.set("x-rapidapi-host", "unogsng.p.rapidapi.co");
         url = url + movie;
         HttpEntity httpEntity = new HttpEntity(headers);
